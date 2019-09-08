@@ -6,6 +6,7 @@
 class EQEmuLoginserverApiClient
 {
     const ACCOUNT_CREATE_ENDPOINT                        = '/account/create';
+    const ACCOUNT_CREATE_EXTERNAL_ENDPOINT               = '/account/create/external';
     const ACCOUNT_CREDENTIALS_VALIDATE_LOCAL_ENDPOINT    = '/account/credentials/validate/local';
     const ACCOUNT_CREDENTIALS_VALIDATE_EXTERNAL_ENDPOINT = '/account/credentials/validate/external';
     const ACCOUNT_CREDENTIALS_UPDATE_LOCAL_ENDPOINT      = '/account/credentials/update/local';
@@ -33,6 +34,26 @@ class EQEmuLoginserverApiClient
     {
         return $this->sendRequest(
             self::ACCOUNT_CREATE_ENDPOINT,
+            'POST',
+            [
+                'username' => $username,
+                'password' => $password,
+                'email'    => $email,
+            ]
+        );
+    }
+
+    /**
+     * @param        $username
+     * @param        $password
+     * @param string $email
+     *
+     * @return array
+     */
+    public function createExternalLoginserverAccount($username, $password, $email = "")
+    {
+        return $this->sendRequest(
+            self::ACCOUNT_CREATE_EXTERNAL_ENDPOINT,
             'POST',
             [
                 'username' => $username,

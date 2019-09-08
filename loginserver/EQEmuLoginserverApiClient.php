@@ -46,19 +46,19 @@ class EQEmuLoginserverApiClient
     /**
      * @param $username
      * @param $password
-     * @param $ls_account_id
+     * @param $login_account_id
      *
      * @return array
      */
-    public function createExternalLoginserverAccount($username, $password, $ls_account_id)
+    public function createExternalLoginserverAccount($username, $password, $login_account_id)
     {
         return $this->sendRequest(
             self::ACCOUNT_CREATE_EXTERNAL_ENDPOINT,
             'POST',
             [
-                'username'      => $username,
-                'password'      => $password,
-                'ls_account_id' => $ls_account_id,
+                'username'         => $username,
+                'password'         => $password,
+                'login_account_id' => $login_account_id,
             ]
         );
     }

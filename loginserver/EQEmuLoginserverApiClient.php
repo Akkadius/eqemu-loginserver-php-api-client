@@ -9,6 +9,7 @@ class EQEmuLoginserverApiClient
     const ACCOUNT_CREDENTIALS_VALIDATE_LOCAL_ENDPOINT    = '/account/credentials/validate/local';
     const ACCOUNT_CREDENTIALS_VALIDATE_EXTERNAL_ENDPOINT = '/account/credentials/validate/external';
     const ACCOUNT_CREDENTIALS_UPDATE_LOCAL_ENDPOINT      = '/account/credentials/update/local';
+    const ACCOUNT_CREDENTIALS_UPDATE_EXTERNAL_ENDPOINT   = '/account/credentials/update/external';
     const SERVERS_LIST_ENDPOINT                          = '/servers/list';
 
     /**
@@ -87,6 +88,24 @@ class EQEmuLoginserverApiClient
     {
         return $this->sendRequest(
             self::ACCOUNT_CREDENTIALS_UPDATE_LOCAL_ENDPOINT,
+            'POST',
+            [
+                'username' => $username,
+                'password' => $password,
+            ]
+        );
+    }
+
+    /**
+     * @param $username
+     * @param $password
+     *
+     * @return array
+     */
+    public function updateExternalAccountCredentials($username, $password)
+    {
+        return $this->sendRequest(
+            self::ACCOUNT_CREDENTIALS_UPDATE_EXTERNAL_ENDPOINT,
             'POST',
             [
                 'username' => $username,

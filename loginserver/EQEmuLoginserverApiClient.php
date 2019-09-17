@@ -5,13 +5,13 @@
  */
 class EQEmuLoginserverApiClient
 {
-    const ACCOUNT_CREATE_ENDPOINT                        = '/account/create';
-    const ACCOUNT_CREATE_EXTERNAL_ENDPOINT               = '/account/create/external';
-    const ACCOUNT_CREDENTIALS_VALIDATE_LOCAL_ENDPOINT    = '/account/credentials/validate/local';
-    const ACCOUNT_CREDENTIALS_VALIDATE_EXTERNAL_ENDPOINT = '/account/credentials/validate/external';
-    const ACCOUNT_CREDENTIALS_UPDATE_LOCAL_ENDPOINT      = '/account/credentials/update/local';
-    const ACCOUNT_CREDENTIALS_UPDATE_EXTERNAL_ENDPOINT   = '/account/credentials/update/external';
-    const SERVERS_LIST_ENDPOINT                          = '/servers/list';
+    const ACCOUNT_CREATE_ENDPOINT                        = '/v1/account/create';
+    const ACCOUNT_CREATE_EXTERNAL_ENDPOINT               = '/v1/account/create/external';
+    const ACCOUNT_CREDENTIALS_VALIDATE_LOCAL_ENDPOINT    = '/v1/account/credentials/validate/local';
+    const ACCOUNT_CREDENTIALS_VALIDATE_EXTERNAL_ENDPOINT = '/v1/account/credentials/validate/external';
+    const ACCOUNT_CREDENTIALS_UPDATE_LOCAL_ENDPOINT      = '/v1/account/credentials/update/local';
+    const ACCOUNT_CREDENTIALS_UPDATE_EXTERNAL_ENDPOINT   = '/v1/account/credentials/update/external';
+    const SERVERS_LIST_ENDPOINT                          = '/v1/servers/list';
 
     /**
      * @var string
@@ -154,7 +154,7 @@ class EQEmuLoginserverApiClient
      */
     private function sendRequest($endpoint, $request_type = 'GET', $payload = [])
     {
-        $curl         = curl_init($this->getApiBaseUrl() . '/v1' . $endpoint);
+        $curl         = curl_init($this->getApiBaseUrl() . $endpoint);
         $json_payload = json_encode($payload);
 
         curl_setopt($curl, CURLOPT_CUSTOMREQUEST, $request_type);

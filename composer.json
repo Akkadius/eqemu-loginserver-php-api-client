@@ -1,6 +1,7 @@
 {
   "require": {
     "adhocore/cli": "^0.3.3",
-    "ext-json": "*"
+    "ext-json": "*",
+    "ext-curl": "*"
   }
 }

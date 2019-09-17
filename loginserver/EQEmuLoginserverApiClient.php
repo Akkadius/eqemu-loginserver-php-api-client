@@ -154,7 +154,7 @@ class EQEmuLoginserverApiClient
      */
     private function sendRequest($endpoint, $request_type = 'GET', $payload = [])
     {
-        $curl         = curl_init($this->getApiBaseUrl() . $endpoint);
+        $curl         = curl_init($this->getApiBaseUrl() . '/v1' . $endpoint);
         $json_payload = json_encode($payload);
 
         curl_setopt($curl, CURLOPT_CUSTOMREQUEST, $request_type);
